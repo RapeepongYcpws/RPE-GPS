@@ -1,19 +1,9 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import Map from "../views/Map";
-import History from "../views/History";
-import Report from "../views/Report";
-import Profile from "../views/Profile";
-Vue.use(VueRouter);
-
+import { createRouter, createWebHistory } from "vue-router";
+// import Home from "../views/Home.vue";
+import Map from "../views/Map.vue";
 const routes = [
   {
     path: "/",
-    redirect: "/map",
-  },
-  {
-    path: "/map",
     name: "Map",
     component: Map,
   },
@@ -28,7 +18,8 @@ const routes = [
   },
 ];
 
-const router = new VueRouter({
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
   routes,
 });
 
